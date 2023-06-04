@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_nav"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.nezrin.a2d_gameapp.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/fromSplashToGame"
+            app:destination="@id/gameScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameScreenFragment"
+        android:name="com.nezrin.a2d_gameapp.GameScreenFragment"
+        android:label="fragment_game_screen"
+        tools:layout="@layout/fragment_game_screen" >
+        <action
+            android:id="@+id/fromGameToResult"
+            app:destination="@id/resultScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultScreenFragment"
+        android:name="com.nezrin.a2d_gameapp.ResultScreenFragment"
+        android:label="fragment_result_screen"
+        tools:layout="@layout/fragment_result_screen" >
+        <action
+            android:id="@+id/fromResultToSplash"
+            app:destination="@id/splashScreenFragment" />
+        <argument
+            android:name="totalScore"
+            app:argType="integer" />
+    </fragment>
+</navigation>
